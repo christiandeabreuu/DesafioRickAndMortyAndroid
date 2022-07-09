@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Rick and Morty</string>
+    <string name="rick_morty_logo">rick_morty_logo</string>
+    <string name="layout_rick_and_morty">Imagem Rick and Morty</string>
+    <string name="layout_character_name">Nome do personagem</string>
+    <string name="imagem_rick_morty_detalhe">Imagem rick Morty detalhe</string>
+</resources>
