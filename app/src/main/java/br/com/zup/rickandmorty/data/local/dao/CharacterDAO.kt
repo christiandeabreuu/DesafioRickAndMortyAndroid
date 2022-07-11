@@ -6,10 +6,10 @@ import br.com.zup.rickandmorty.data.local.entity.CharacterEntity
 
 @Dao
 interface CharacterDAO {
-    @Query("Select * From CharacterEntity")
+    @Query("Select * From character_entity")
     fun getAll(): LiveData<List<CharacterEntity>>
 
-    @Query("Select * From CharacterEntity WHERE favorite = 1")
+    @Query("Select * From character_entity WHERE favorite = 1")
     fun getAllFavorites(): LiveData<List<CharacterEntity>>
 
     @Update

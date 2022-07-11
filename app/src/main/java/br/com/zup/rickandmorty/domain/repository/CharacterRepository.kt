@@ -1,7 +1,7 @@
 package br.com.zup.rickandmorty.domain.repository
 
 import androidx.lifecycle.LiveData
-import br.com.zup.rickandmorty.AppApplication
+import br.com.zup.rickandmorty.data.local.AppApplication
 import br.com.zup.rickandmorty.data.local.entity.CharacterEntity
 import br.com.zup.rickandmorty.data.remote.RetrofitService
 import kotlinx.coroutines.Dispatchers
@@ -9,7 +9,6 @@ import kotlinx.coroutines.runBlocking
 
 class CharacterRepository {
     private val listCharacterDB = AppApplication.getDB().characterDAO().getAll()
-    private val listCharacterFavorites = AppApplication.getDB().characterDAO().getAllFavorites()
 
     fun getAllCharactersEntityLiveData(): LiveData<List<CharacterEntity>> {
         return listCharacterDB
@@ -26,6 +25,7 @@ class CharacterRepository {
                             id = it.id,
                             image = it.image,
                             species = it.species,
+                            gender = it.gender,
                             status = it.status,
                             name = it.name,
                             favorite = false
@@ -38,13 +38,5 @@ class CharacterRepository {
                 ex.printStackTrace()
             }
         }
-    }
-
-    fun update(characterEntity: CharacterEntity) {
-        AppApplication.getDB().characterDAO().update(characterEntity)
-    }
-
-    fun getAllFavorites(): LiveData<List<CharacterEntity>> {
-        return listCharacterFavorites
     }
 }
